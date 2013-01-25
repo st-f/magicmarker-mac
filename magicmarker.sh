@@ -4,8 +4,8 @@
 #
 # Andrew Glenn
 #
-# Version: 0.1
-# Release: 2012.11.19
+# Version: 0.2
+# Release: 2013.01.24
 
 # Set colors.
 txtblk='\e[0;30m' # Black - Regular
@@ -56,5 +56,17 @@ function infobox(){
 
 function warningbox(){
     echo -e "[${bldred}!!${txtrst}] $@"
+}
+
+function log() {
+        if [ "$logfile" != " " ]; then
+                echo "`date '+%Y.%m.%d %H:%M:%S'` | $1" >> $logfile
+        else
+                echo "`date '+%Y.%m.%d %H:%M:%S'` | $1"
+        fi
+}         
+
+function donebox(){
+    echo -ne "[${bldgrn}DONE${txtreset}]"
 }
 
